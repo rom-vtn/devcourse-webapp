@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: Lint
     steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Use Node v20.9.0
+        uses: actions/setup-node@v4
       - name: Load and cache deps
         uses: ./.github/actions/cached-deps
       - name: Run tests
@@ -29,6 +33,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [Lint, Test]
     steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Use Node v20.9.0
+        uses: actions/setup-node@v4
       - name: Load and cache deps
         uses: ./.github/actions/cached-deps
       - name: Build
