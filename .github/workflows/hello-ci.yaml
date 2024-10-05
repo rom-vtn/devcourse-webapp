@@ -6,3 +6,26 @@ jobs:
     steps:
       - name: Say hi
         run: echo "Hi from the workflow!"
+  Lint:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Load and cache deps
+        uses: ./.github/actions/cached-deps
+      - name: Lint
+        run: npm run lint
+  Test:
+    runs-on: ubuntu-lastest
+    needs: Lint
+    steps:
+      - name: Load and cache deps
+        uses: ./.github/actions/cached-deps
+      - name: Run tests
+        run: npm run test
+  Build:
+    runs-on: ubuntu-lastest
+    needs: [Lint, Test]
+    steps:
+      - name: Load and cache deps
+        uses: ./.github/actions/cached-deps
+      - name: Build
+        run: npm run build
