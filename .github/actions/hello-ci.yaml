@@ -1,0 +1,8 @@
+name: Sample workflow
+on: push
+jobs:
+  sayhi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hi
+        run: echo "Hi from the workflow!"

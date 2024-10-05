@@ -1,0 +1,5 @@
+{
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/Romane/Desktop/Cours/Semestre%205/devcourse-webapp/.github/actions/hello-ci.yaml"
+    }
+}
